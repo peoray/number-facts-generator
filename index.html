@@ -12,7 +12,7 @@
 
 		<style>
 
-		/*#fact {*/
+		#fact {
 			display: none;
 		}
 
@@ -28,28 +28,44 @@
 					<h1>Number Facts</h1>
 					<p>Enter a number and get a random fact</p>
 
+					<div class="alert alert-success alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						This alert box could indicate a successful or positive action.
+					</div>
+
 					<form class="form-group">
 						<input type="text" class="form-control form-control-lg" id="numberInput" placeholder="Enter any number...">
 
 						<div class="checkbox mt-3">
-							<button><input type="radio"id="num" name="fact"> 
-							<label for="num">Number</label></button>
 
-							<button><input type="radio"id="year" name="fact"> 
-							<label for="year">Year</label></button>
+							<!-- RADIO BUTTON FOR NUMBER -->
+							<input type="radio" id="num" name="fact"> 
+							<label for="num" class="mr-2">Number</label>
+
+							<!-- RADIO BUTTON FOR YEAR -->
+							<input type="radio" id="year" name="fact"> 
+							<label for="year" class="mr-2">Year</label>
 							
-							<button><input type="radio"id="date" name="fact"> 
-							<label for="date">Date</label></button>
+							<!-- RADIO BUTTON FOR DATE -->
+							<input type="radio" id="date" name="fact"> 
+							<label for="date">Date</label>
 
 						</div>
 					</form>
+
+					<div class="alert alert-success alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						This alert box could indicate a successful or positive action.
+					</div>
+
 				</div>
 
 				<div id="fact" class="card mt-3">
-					<div class="card-body">
+					<div class="card-body p-4">
 						<p id="factText" class="card-text"></p>
 					</div>
 				</div>
+
 			</div> 		
 		</div>
 	</div>
@@ -57,6 +73,6 @@
 
 
 
-				<script src="script.js"></script>
-			</body>
-			</html>
+	<script src="script.js"></script>
+</body>
+</html>
