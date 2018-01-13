@@ -2,8 +2,9 @@ var fact = document.getElementById('fact');
 
 var factText = document.getElementById('factText');
 
-var numberInput = document.getElementById('numberInput');
+var showDate = document.getElementById('showDate');
 
+var numberInput = document.getElementById('numberInput');
 numberInput.addEventListener('input', getFact);
 
 function getFact() {
@@ -16,6 +17,7 @@ function getFact() {
 	}
 
 	else if (document.getElementById('date').checked) {
+		showDate.style.display = 'block';
 		xhr.open('GET', 'http://numbersapi.com/'+number+'/date', true);
 	}
 
