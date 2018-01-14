@@ -7,6 +7,9 @@ var showDate = document.getElementById('showDate');
 var numberInput = document.getElementById('numberInput');
 numberInput.addEventListener('input', getFact);
 
+var tweetButton = document.getElementById('tweetButton');
+tweetButton.addEventListener('click', tweetFact);
+
 function getFact() {
 	var number = numberInput.value;
 
@@ -33,5 +36,13 @@ function getFact() {
 	}
 
 	xhr.send();
+}
+
+function tweetFact() {
+	var url = "https://twitter.com/intent/tweet";
+	var tweetText = factText.innerHTML;
+	var hashtags = "100DaysOfCode, CodeNewbie";
+	var via = "super_raay";
+	window.open(url+"?tweetText="+tweetText+";hashtags="+hashtags+";via="+via,"","width=500, height=300");
 }
 
