@@ -40,9 +40,9 @@ function getFact() {
 
 function tweetFact() {
 	var url = "https://twitter.com/intent/tweet";
-	var tweetText = factText.innerHTML;
+	var text = factText.innerHTML;
 	var hashtags = "100DaysOfCode, CodeNewbie";
 	var via = "super_raay";
-	window.open(url+"?tweetText="+tweetText+";hashtags="+hashtags+";via="+via,"","width=500, height=300");
+	window.open(url+"?text="+text+";hashtags="+hashtags+";via="+via,"","width=500, height=300");
 }
 
