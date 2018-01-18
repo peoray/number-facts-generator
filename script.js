@@ -23,12 +23,12 @@ function getFact() {
 	var xhr = new XMLHttpRequest();
 
 	if (document.getElementById('year').checked) {
-		numberInput.focus();
+		getFocused();
 		xhr.open('GET', 'http://numbersapi.com/'+number+'/year', true);
 	}
 
 	else if (document.getElementById('date').checked) {
-		numberInput.focus();
+		getFocused();
 		showDate.style.display = 'block';
 		xhr.open('GET', 'http://numbersapi.com/'+number+'/date', true);
 	}
@@ -45,6 +45,12 @@ function getFact() {
 	}
 
 	xhr.send();
+}
+
+function getFocused() {
+	if(document.getElementByClassName('radio').checked) {
+		document.getElementById('numberInput').focus();
+	}
 }
 
 function tweetFact() {
