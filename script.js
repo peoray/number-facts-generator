@@ -1,25 +1,34 @@
-var fact = document.getElementById('fact');
-
 var factText = document.getElementById('factText');
 
-var showDate = document.getElementById('showDate');
-
+// GET FORM INPUT
 var numberInput = document.getElementById('numberInput');
+document.getElementById("numberInput").focus();
 numberInput.addEventListener('input', getFact);
 
+// GET TWEET BUTTON
 var tweetButton = document.getElementById('tweetButton');
 tweetButton.addEventListener('click', tweetFact);
 
 function getFact() {
+
+	// GET FACT CONTAINER
+	var fact = document.getElementById('fact');
+
+	// GET DATE ALERT
+	var showDate = document.getElementById('showDate');
+
+	// GET VALUE OF FORM INPUT
 	var number = numberInput.value;
 
 	var xhr = new XMLHttpRequest();
 
 	if (document.getElementById('year').checked) {
+		numberInput.focus();
 		xhr.open('GET', 'http://numbersapi.com/'+number+'/year', true);
 	}
 
 	else if (document.getElementById('date').checked) {
+		numberInput.focus();
 		showDate.style.display = 'block';
 		xhr.open('GET', 'http://numbersapi.com/'+number+'/date', true);
 	}
