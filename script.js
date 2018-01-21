@@ -1,8 +1,5 @@
 var factText = document.getElementById('factText');
 
-// GET DATE ALERT
-var showDate = document.getElementById('showDate');
-
 // GET FORM INPUT
 var numberInput = document.getElementById('numberInput');
 numberInput.addEventListener('input', getFact);
@@ -54,6 +51,27 @@ function getFocused() {
 
 	})
 }
+
+
+function check() {
+	// GET DATE ALERT
+	var showDate = document.getElementById('showDate');
+	
+	var radioButton = document.getElementsByClassName("radio");
+
+	this.addEventListener('click', function() {
+		if (radioButton[2].checked) {
+			showDate.style.display = 'block';
+		}
+
+		else {
+			showDate.style.display = 'none';
+		}
+	})
+}
+
+check();
+
 
 getFocused();
 
