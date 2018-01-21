@@ -47,11 +47,15 @@ function getFocused() {
 	radios.forEach(function() {
 		this.addEventListener('click', function() {
 			document.querySelector('input[type="text"]').focus();
+			document.querySelector('input[type="text"]').value = '';
+			// factText.style.display = 'none';
 		});
 
 	})
 
 }
+
+getFocused();
 
 
 function check() {
@@ -72,9 +76,6 @@ function check() {
 }
 
 check();
-
-
-getFocused();
 
 function tweetFact() {
 	var url = "https://twitter.com/intent/tweet";
