@@ -19,15 +19,15 @@ function getFact() {
 	var xhr = new XMLHttpRequest();
 
 	if (document.getElementById('year').checked) {
-		xhr.open('GET', 'http://numbersapi.com/'+number+'/year', true);
+		xhr.open('GET', 'https://numbersapi.com/'+number+'/year', true);
 	}
 
 	else if (document.getElementById('date').checked) {
-		xhr.open('GET', 'http://numbersapi.com/'+number+'/date', true);
+		xhr.open('GET', 'https://numbersapi.com/'+number+'/date', true);
 	}
 
 	else {
-		xhr.open('GET', 'http://numbersapi.com/'+number, true);
+		xhr.open('GET', 'https://numbersapi.com/'+number, true);
 	}
 
 	xhr.onload = function() {
@@ -50,13 +50,14 @@ function getFocused() {
 		});
 
 	})
+
 }
 
 
 function check() {
 	// GET DATE ALERT
 	var showDate = document.getElementById('showDate');
-	
+
 	var radioButton = document.getElementsByClassName("radio");
 
 	this.addEventListener('click', function() {
