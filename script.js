@@ -1,8 +1,10 @@
 var factText = document.getElementById('factText');
 
+// GET DATE ALERT
+var showDate = document.getElementById('showDate');
+
 // GET FORM INPUT
 var numberInput = document.getElementById('numberInput');
-document.getElementById("numberInput").focus();
 numberInput.addEventListener('input', getFact);
 
 // GET TWEET BUTTON
@@ -14,22 +16,16 @@ function getFact() {
 	// GET FACT CONTAINER
 	var fact = document.getElementById('fact');
 
-	// GET DATE ALERT
-	var showDate = document.getElementById('showDate');
-
 	// GET VALUE OF FORM INPUT
 	var number = numberInput.value;
 
 	var xhr = new XMLHttpRequest();
 
 	if (document.getElementById('year').checked) {
-		getFocused();
 		xhr.open('GET', 'http://numbersapi.com/'+number+'/year', true);
 	}
 
 	else if (document.getElementById('date').checked) {
-		getFocused();
-		showDate.style.display = 'block';
 		xhr.open('GET', 'http://numbersapi.com/'+number+'/date', true);
 	}
 
@@ -48,10 +44,18 @@ function getFact() {
 }
 
 function getFocused() {
-	if(document.getElementByClassName('radio').checked) {
-		document.getElementById('numberInput').focus();
-	}
+
+	var radios = document.querySelectorAll('input[type="radio"]');
+
+	radios.forEach(function() {
+		this.addEventListener('click', function() {
+			document.querySelector('input[type="text"]').focus();
+		});
+
+	})
 }
+
+getFocused();
 
 function tweetFact() {
 	var url = "https://twitter.com/intent/tweet";
@@ -60,4 +64,3 @@ function tweetFact() {
 	var via = "super_raay";
 	window.open(url+"?text="+text+";hashtags="+hashtags+";via="+via,"","width=500, height=300");
 }
-
