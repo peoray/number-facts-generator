@@ -8,6 +8,10 @@ numberInput.addEventListener('input', getFact);
 var tweetButton = document.getElementById('tweetButton');
 tweetButton.addEventListener('click', tweetFact);
 
+document.querySelector('body').addEventListener('click', getFocused);
+
+document.querySelector('body').addEventListener('click', removeMessage);
+
 function getFact() {
 
     // GET FACT CONTAINER
@@ -37,28 +41,13 @@ function getFact() {
     xhr.send();
 }
 
-function getFocused() {
-
-    var radios = document.querySelectorAll('input[type="radio"]');
-
-    radios.forEach(function() {
-        this.addEventListener('click', function() {
-            document.querySelector('input[type="text"]').focus();
-            document.querySelector('input[type="text"]').value = '';
-            document.getElementById('fact').style.display = 'none';
-
-        })
-    })
+function getFocused(e) {
+    if (e.target.className === 'radio') {
+        document.querySelector('input[type="text"]').focus();
+        document.querySelector('input[type="text"]').value = '';
+        document.getElementById('fact').style.display = 'none';
+    }
 }
-
-getFocused();
-
-// window.addEventListener('click', ()=>{
-// document.querySelector('input[type="text"]').focus();
-//             document.querySelector('input[type="text"]').value = '';
-//                         document.getElementById('fact').style.display = 'none';
-       
-// });
 
 function check() {
     // GET DATE ALERT
@@ -76,6 +65,12 @@ function check() {
 }
 
 check();
+
+function removeMessage(e) {
+    if (e.target.className === 'close') {
+        document.getElementById('showDate').remove();
+    }
+}
 
 function tweetFact() {
     var url = "https://twitter.com/intent/tweet";
