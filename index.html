@@ -11,9 +11,7 @@
 
 
 		<style>
-
-		#fact, 
-		#showDate {
+		.hidden {
 			display: none;
 		}
 
@@ -55,7 +53,7 @@
 						</div>
 					</form>
 
-					<div class="alert alert-info alert-dismissable" id="showDate">
+					<div class="alert alert-info alert-dismissable hidden" id="showDate">
 						<button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
 						Enter 'month'/'day' to get fact for Date<br>
 						E.g: 12/25 = December 25th
@@ -63,7 +61,7 @@
 					
 				</div>
 
-				<div id="fact" class="card mt-3">
+				<div id="fact" class="card mt-3 hidden">
 					<div class="card-body p-4">
 						<p id="factText" class="card-text"></p>
 						<div class="btn btn-lg btn-success text-right" id="tweetButton">Tweet</div>

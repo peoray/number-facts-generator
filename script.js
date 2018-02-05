@@ -73,17 +73,12 @@ function removeMessage(e) {
     var showDate = document.getElementById('showDate');
 
     if (e.target.className === 'close') {
-        // document.getElementById('showDate').remove();
         showDate.style.visibility = 'hidden';
     }
 
     else {
-        showDate.style.visibility = 'visible';
-    }
-   //  else {
-   //     document.getElementById('showDate').show();
-   // }
-
+    showDate.style.visibility = "visible";
+  }
 }
 
 function tweetFact() {
