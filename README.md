@@ -3,6 +3,6 @@ This is a Number fact Machine that shows a fact base on a value inputted by the 
 The data is gotten from the [Number API](numbersapi.com).
 
 To run the project on your system:
-- Dowwnload the Project Folder.
+- Download the Project Folder.
 - Use a local server and open the index.html file. 
 - Enjoy!
