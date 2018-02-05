@@ -8,6 +8,9 @@ numberInput.addEventListener('input', getFact);
 var tweetButton = document.getElementById('tweetButton');
 tweetButton.addEventListener('click', tweetFact);
 
+var radioButton = document.getElementsByClassName("radio");
+
+
 document.querySelector('body').addEventListener('click', getFocused);
 
 document.querySelector('body').addEventListener('click', removeMessage);
@@ -67,9 +70,20 @@ function check() {
 check();
 
 function removeMessage(e) {
+    var showDate = document.getElementById('showDate');
+
     if (e.target.className === 'close') {
-        document.getElementById('showDate').remove();
+        // document.getElementById('showDate').remove();
+        showDate.style.visibility = 'hidden';
     }
+
+    else {
+        showDate.style.visibility = 'visible';
+    }
+   //  else {
+   //     document.getElementById('showDate').show();
+   // }
+
 }
 
 function tweetFact() {
