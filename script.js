@@ -1,8 +1,8 @@
 var factText = document.getElementById('factText');
 
 // GET FORM INPUT
-var numberInput = document.getElementById('numberInput');
-numberInput.addEventListener('input', getFact);
+var submit = document.getElementById('submit');
+submit.addEventListener('click', getFact);
 
 // GET TWEET BUTTON
 var tweetButton = document.getElementById('tweetButton');
@@ -15,12 +15,15 @@ document.querySelector('body').addEventListener('click', getFocused);
 
 document.querySelector('body').addEventListener('click', removeMessage);
 
-function getFact() {
+function getFact(e) {
+    e.preventDefault();
 
     // GET FACT CONTAINER
     var fact = document.getElementById('fact');
 
     // GET VALUE OF FORM INPUT
+    var numberInput = document.getElementById("numberInput");
+
     var number = numberInput.value;
 
     var xhr = new XMLHttpRequest();
