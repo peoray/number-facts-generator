@@ -1,12 +1,12 @@
 var factText = document.getElementById('factText');
 
 // GET FORM INPUT
-var submit = document.getElementById('submit');
-submit.addEventListener('click', getFact);
+let submit = document.getElementById('submit');
+submit.addEventListener('click', getFactAjax);
 
 // GET TWEET BUTTON
 var tweetButton = document.getElementById('tweetButton');
-tweetButton.addEventListener('click', tweetFact);
+tweetButton.addEventListener('click', tweetFactAjax);
 
 var radioButton = document.getElementsByClassName("radio");
 
@@ -15,30 +15,30 @@ document.querySelector('body').addEventListener('click', getFocused);
 
 document.querySelector('body').addEventListener('click', removeMessage);
 
-function getFact(e) {
+function getFactAjax(e) {
     e.preventDefault();
 
     // GET FACT CONTAINER
-    var fact = document.getElementById('fact');
+    let fact = document.getElementById('fact');
 
     // GET VALUE OF FORM INPUT
-    var numberInput = document.getElementById("numberInput");
+    let numberInput = document.getElementById("numberInput").value;
 
-    var number = numberInput.value;
+
 
     var xhr = new XMLHttpRequest();
 
     if (document.getElementById('year').checked) {
-        xhr.open('GET', 'http://numbersapi.com/' + number + '/year', true);
+        xhr.open('GET', 'http://numbersapi.com/' + numberInput + '/year', true);
     } else if (document.getElementById('date').checked) {
-        xhr.open('GET', 'http://numbersapi.com/' + number + '/date', true);
+        xhr.open('GET', 'http://numbersapi.com/' + numberInput + '/date', true);
     } else {
-        xhr.open('GET', 'http://numbersapi.com/' + number, true);
+        xhr.open('GET', 'http://numbersapi.com/' + numberInput, true);
 
     }
 
     xhr.onload = function() {
-        if (this.status === 200 && number !== '') {
+        if (this.status === 200 && numberInput !== '') {
             fact.style.display = 'block';
             factText.textContent = this.responseText;
         }
@@ -77,14 +77,12 @@ function removeMessage(e) {
 
     if (e.target.className === 'close') {
         showDate.style.visibility = 'hidden';
+    } else {
+        showDate.style.visibility = "visible";
     }
-
-    else {
-    showDate.style.visibility = "visible";
-  }
 }
 
-function tweetFact() {
+function tweetFactAjax() {
     var url = "https://twitter.com/intent/tweet";
     var text = factText.innerHTML;
     var hashtags = "100DaysOfCode, CodeNewbie";
