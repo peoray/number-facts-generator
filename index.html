@@ -10,7 +10,6 @@
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
 
 </head>
 
@@ -21,7 +20,6 @@
 			<div class="col-md-6 mx-auto">
 
 				<div class="card bg-primary text-white text-center mt-5 p-4">
-
 					<h1>Number Facts</h1>
 					<p>Enter a number and get a random fact</p>
 
@@ -30,12 +28,7 @@
 					</div>
 
 					<form class="form-group">
-						<input type="text" class="form-control form-control-lg" id="numberInput" placeholder="Enter number, year or date...">
-						<button id="submit" class="btn btn-secondary mt-2">Submit</button>
-
-
 						<div class="checkbox mt-3">
-
 							<!-- RADIO BUTTON FOR NUMBER -->
 							<input type="radio" id="num" class="radio" name="fact">
 							<label for="num" class="mr-2">Number</label>
@@ -45,24 +38,20 @@
 							<label for="year" class="mr-2">Year</label>
 
 							<!-- RADIO BUTTON FOR DATE -->
-							<input type="radio" id="date" class="radio" name="fact">
+							<input type="radio" id="date" class="radio dated" value="date" name="fact">
 							<label for="date">Date</label>
-
 						</div>
+						<div id="input">
+							<input type="text" class="form-control form-control-lg" id="numberInput" placeholder="Enter number, year or date...">
+						</div>
+						<button id="submit" class="btn btn-secondary mt-2">Submit</button>
 					</form>
-
-					<div class="alert alert-info alert-dismissable hidden" id="showDate">
-						<button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
-						Enter 'month'/'day' to get fact for Date
-						<br> E.g: 12/25 = December 25th
-					</div>
-
 				</div>
 
 				<div id="fact" class="card mt-3 hidden">
 					<div class="card-body p-4">
 						<p id="factText" class="card-text"></p>
-						<div class="btn btn-lg btn-primary" id="tweetButton">Tweet</div>
+						<div class="btn btn-md btn-primary" id="tweetButton">Tweet</div>
 					</div>
 				</div>
 
@@ -70,9 +59,7 @@
 		</div>
 	</div>
 
-
-
-	<script src="script.js"></script>
+	<script src="js/script.js"></script>
 </body>
 
 </html>

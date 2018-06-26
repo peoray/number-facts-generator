@@ -1,93 +1,79 @@
-var factText = document.getElementById('factText');
+// get the result of the search term
+const factText = document.getElementById("factText");
 
-// GET FORM INPUT
-var submit = document.getElementById('submit');
-submit.addEventListener('click', getFact);
-
-// GET TWEET BUTTON
-var tweetButton = document.getElementById('tweetButton');
-tweetButton.addEventListener('click', tweetFact);
-
-var radioButton = document.getElementsByClassName("radio");
-
-
-document.querySelector('body').addEventListener('click', getFocused);
-
-document.querySelector('body').addEventListener('click', removeMessage);
+// get container of fact result
+const fact = document.getElementById("fact");
 
 function getFact(e) {
-    e.preventDefault();
+  // get value of form input
+  var numberInput = document.getElementById("numberInput").value;
 
-    // GET FACT CONTAINER
-    var fact = document.getElementById('fact');
+  const xhr = new XMLHttpRequest();
+  const url = `http://numbersapi.com/${numberInput}`;
 
-    // GET VALUE OF FORM INPUT
-    var numberInput = document.getElementById("numberInput");
-
-    var number = numberInput.value;
-
-    var xhr = new XMLHttpRequest();
-
-    if (document.getElementById('year').checked) {
-        xhr.open('GET', 'http://numbersapi.com/' + number + '/year', true);
-    } else if (document.getElementById('date').checked) {
-        xhr.open('GET', 'http://numbersapi.com/' + number + '/date', true);
-    } else {
-        xhr.open('GET', 'http://numbersapi.com/' + number, true);
-
+  if (document.getElementById("year").checked) {
+    xhr.open("GET", `${url}/year`, true);
+  } else if (document.getElementById("date").checked) {
+    xhr.open("GET", `${url}/date`, true);
+  } else {
+    xhr.open("GET", url, true);
+  }
+  xhr.onload = function() {
+    if (this.status === 200 && numberInput !== "") {
+      fact.style.display = "block";
+      factText.textContent = this.responseText;
     }
-
-    xhr.onload = function() {
-        if (this.status === 200 && number !== '') {
-            fact.style.display = 'block';
-            factText.textContent = this.responseText;
-        }
-    }
-
-    xhr.send();
+  };
+  xhr.send();
+  e.preventDefault();
 }
 
-function getFocused(e) {
-    if (e.target.className === 'radio') {
-        document.querySelector('input[type="text"]').focus();
-        document.querySelector('input[type="text"]').value = '';
-        document.getElementById('fact').style.display = 'none';
-    }
-}
-
-function check() {
-    // GET DATE ALERT
-    var showDate = document.getElementById('showDate');
-
-    var radioButton = document.getElementsByClassName("radio");
-
-    this.addEventListener('click', function() {
-        if (radioButton[2].checked) {
-            showDate.style.display = 'block';
-        } else {
-            showDate.style.display = 'none';
-        }
-    })
-}
-
-check();
-
-function removeMessage(e) {
-    var showDate = document.getElementById('showDate');
-
-    if (e.target.className === 'close') {
-        showDate.style.visibility = 'hidden';
-    }
-
-    else {
-    showDate.style.visibility = "visible";
+function makeFormInputfocused(e) {
+  if (e.target.className === "radio") {
+    document.querySelector('input[type="text"]').focus();
+    document.querySelector('input[type="text"]').value = "";
+    fact.style.display = "none";
   }
 }
 
-function tweetFact() {
-    var url = "https://twitter.com/intent/tweet";
-    var text = factText.innerHTML;
-    var hashtags = "100DaysOfCode, CodeNewbie";
-    var via = "super_raay";
-    window.open(url + "?text=" + text + ";hashtags=" + hashtags + ";via=" + via, "", "width=500, height=300");
+function showMessage(message, className) {
+  const div = document.createElement("div");
+  div.className = `alert message-alert ${className}`;
+  div.appendChild(document.createTextNode(message));
+  // get parent
+  const parent = document.querySelector("#input");
+  const before = document.getElementById("numberInput");
+  // insert message
+  parent.insertBefore(div, before);
+
+  setTimeout(() => document.querySelector(".message-alert").remove(), 3000);
 }
+
+document.getElementById("date").addEventListener("click", e => {
+  showMessage(
+    `Enter "month"/"day" to get fact for Date. E.g: 12/25 = December 25th`,
+    "alert-info"
+  );
+});
+
+// Tweet functionality
+function tweetFact() {
+  const url = "https://twitter.com/intent/tweet";
+  const text = factText.innerHTML;
+  const hashtags = "100DaysOfCode, CodeNewbie";
+  const via = "super_raay";
+  window.open(
+    url + "?text=" + text + ";hashtags=" + hashtags + ";via=" + via,
+    "",
+    "width=700, height=300"
+  );
+}
+
+// get form submit button
+document.getElementById("submit").addEventListener("click", getFact);
+
+// get tweet button
+document.getElementById("tweetButton").addEventListener("click", tweetFact);
+
+// make the form input to focus when the anywhere on the page is click
+document.body.addEventListener("click", makeFormInputfocused);
