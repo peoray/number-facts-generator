@@ -54,6 +54,8 @@ document.getElementById("date").addEventListener("click", e => {
     `Enter "month"/"day" to get fact for Date. E.g: 12/25 = December 25th`,
     "alert-info"
   );
+  document.querySelector('input[type="text"]').focus();
+  document.querySelector('input[type="text"]').value = "";
 });
 
 // Tweet functionality
