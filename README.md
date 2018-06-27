@@ -1,10 +1,12 @@
-This is a Number fact Machine that shows a fact base on a value inputted by the user. It could be a number (integer), a year or a date. 
+![photo](https://res.cloudinary.com/peoray/image/upload/v1530117604/nfm_zqyxkg.gif)
+
+This is a Number fact Machine that shows a fact base on a value inputted by the user. It could be a number (integer), a year or a date. - [See Live Site](https://peoray.github.io/Number-Facts-Machine/)
+
+The project and UI is inspired by [Brad Traversy Youtube Video](https://www.youtube.com/watch?v=tUE2Nic21BA)
 
 The data is gotten from the [Number API](numbersapi.com).
+#### Technologies Used:
+* HTML5
+* BootStrap
+* JavaScript
 
-[Read my full details of the project](https://medium.com/@peoray/numbers-fact-machine-482eeea29676)
-
-To run the project on your system:
-- Download the Project Folder.
-- Use a local server and open the index.html file. 
-- Enjoy!
