@@ -9,15 +9,15 @@ function getFact(e) {
   var numberInput = document.getElementById("numberInput").value;
 
   const xhr = new XMLHttpRequest();
-  const url = `http://numbersapi.com/${numberInput}`;
+  let url =
+    "https://cors-anywhere.herokuapp.com/http://numbersapi.com/" + numberInput;
 
   if (document.getElementById("year").checked) {
-    xhr.open("GET", `${url}/year`, true);
+    url += "/year";
   } else if (document.getElementById("date").checked) {
-    xhr.open("GET", `${url}/date`, true);
-  } else {
-    xhr.open("GET", url, true);
+    url += "/date";
   }
+  xhr.open("GET", url, true);
   xhr.onload = function() {
     if (this.status === 200 && numberInput !== "") {
       fact.style.display = "block";
