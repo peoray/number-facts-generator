@@ -56,6 +56,7 @@ document.getElementById("date").addEventListener("click", e => {
   );
   document.querySelector('input[type="text"]').focus();
   document.querySelector('input[type="text"]').value = "";
+  fact.style.display = "none";
 });
 
 // Tweet functionality
