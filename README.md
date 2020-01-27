@@ -1,4 +1,4 @@
-![gif image of application](https://res.cloudinary.com/peoray/image/upload/v1530117604/nfm_zqyxkg.gif)
+![gif image of application](https://res.cloudinary.com/peoray/image/upload/v1528383984/1_wJ-kimDeb6CFX2GrXcmPAA_noqjxe.gif)
 
 
 This is a Number fact Machine that shows a fact base on a value inputted by the user. It could be a number (integer), a year or a date. - [See Live Site](https://peoray.github.io/number-facts-machine/)
